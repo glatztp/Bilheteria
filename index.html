@@ -1,0 +1,230 @@
+
+    
+    <?php
+    include("conexao.php");
+    ?>
+    <?php
+    // Conexão com o banco de dados (substitua pelas suas informações)
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "filmes";
+
+    $conexao = mysqli_connect($hostname, $username, $password, $database);
+
+    if (!$conexao) {
+        die("Falha na conexão: " . mysqli_connect_error());
+    }
+
+    $query = "
+        CREATE TABLE groceries (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            quantity INTEGER,
+            aisle INTEGER
+        );
+        
+        INSERT INTO groceries (id, name, quantity, aisle) VALUES (1, 'Polaco', 4, 7);
+        INSERT INTO groceries (id, name, quantity, aisle) VALUES (2, 'José', 1, 2);
+        INSERT INTO groceries (id, name, quantity, aisle) VALUES (3, 'Diego', 2, 2);
+        INSERT INTO groceries (id, name, quantity, aisle) VALUES (4, 'Viera', 1, 12);
+        INSERT INTO groceries (id, name, quantity, aisle) VALUES (5, 'Fernanda', 6, 2);
+        INSERT INTO groceries (id, name, quantity, aisle) VALUES (6, 'Bruno', 1, 4);
+        ";
+
+        //$executar = mysqli_multi_query($conexao, $query);
+
+    //if ($executar) {
+      //  echo "Tabela 'groceries' criada e dados inseridos com sucesso.";
+    //}else {
+     //   echo "Erro: " . mysqli_error($conexao);
+    //}
+
+    ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff4500;
+            margin-top: 20px;
+            margin-left: 20;
+
+            
+        }
+
+        h1{
+
+            text-align: center;
+            color: #ff4500;  
+            
+           
+            
+
+        }
+
+        .ranking-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px auto;
+            max-width: 1400px;
+
+        }
+
+        .ranking {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+        h4{
+            font-size: 25px;
+            text-align: center;
+            color: #ff4500;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        button {
+          margin-top: 10px;
+          border-radius: 4px;
+          border: none;
+          background-color: #ff2400;
+          color: white;
+          padding: 8px;
+          font-weight: bold;
+          font-size: 16px;
+          outline: none;
+        }
+
+        button:hover {
+          background-color: #8B0000;
+          cursor: pointer;
+}
+
+.footer {
+    margin-left: 55px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 10px 0;
+    margin-right: 55px;
+    margin-top: 25px;
+}
+
+    </style>
+</head>
+<body>
+
+    <h1>Du'Flix</h1>
+    <div class="ranking-container">
+                
+        <h2>Top 10 Filmes Mais Vistos Mundialmente</h2>
+    <div class="ranking-container">
+        <div class="ranking">
+            <h3>Vingadores: Ultimato</h3>
+            <img src=https://th.bing.com/th/id/OIP.B4X2Gzt2QIDCB2ra2t0OtQHaK-?pid=ImgDet&rs=1 alt="Capa do filme Vingadores: Ultimato">
+           <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+
+        </div>
+
+        <div class="ranking">
+            <h3>Avatar</h3>
+            <img src=https://image.tmdb.org/t/p/original/8Y7WrRK1iQHEX7UIftBeBMjPjWD.jpg>
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+        <div class="ranking">
+            <h3>Titanic</h3>
+            <img src=https://th.bing.com/th/id/R.dad0169e533c061e0999285b3614a463?rik=bD7x1RbChOYasA&riu=http%3a%2f%2f2.bp.blogspot.com%2f-J_LatuSaoyk%2fT5wGZbNHc-I%2fAAAAAAAAFeY%2f1KVt3vEpX_4%2fs1600%2ftitanic%2bposter.jpg&ehk=t6iYS5WnHq8897gVebIMPTdKyT8PJd1HibXpZPwZVKI%3d&risl=&pid=ImgRaw&r=0 alt="Capa do filme Titanic">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+        <div class="ranking">
+            <h3>Star Wars</h3>
+            <img src=https://th.bing.com/th/id/R.83ac5bbb93b82cf5232b1af8da26ce86?rik=snBXCfG1qLfAWg&pid=ImgRaw&r=0 alt="Capa do filme Star Wars">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+        <div class="ranking">
+            <h3>Vingadores</h3>
+            <img src=https://th.bing.com/th/id/R.572a22f560a169e909f94c6e32dc1b6a?rik=XhdxgOGIGQFSqw&pid=ImgRaw&r=0 alt="Capa do filme Vingadores">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+         <div class="ranking">
+            <h3> Jurassic World: o Mundo dos Dinossauros</h3>
+            <img src=https://th.bing.com/th/id/OIP.Qpl57gJkPEDOqA6t4XMBcAHaJh?pid=ImgDet&rs=1 alt=" Jurassic World: o Mundo dos Dinossauros">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+         <div class="ranking">
+            <h3>O Rei Leao</h3>
+            <img src=https://th.bing.com/th/id/OIP.u4ht0HqIiShMD5sM3ZXfoQHaKq?pid=ImgDet&rs=1 alt="Capa do O Rei Leão">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+         <div class="ranking">
+            <h3>Os Vingadores</h3>
+            <img src=https://th.bing.com/th/id/OIP.p-Accdd-N_XGtueHCadYgwHaLH?pid=ImgDet&rs=1 alt="Capa do The Avengers: os Vingadores">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+
+        <div class="ranking">
+            <h3>Velozes & Furiosos 7</h3>
+            <img src=https://th.bing.com/th/id/OIP.j8vpqMdwjJmRZV1YZE9WswHaLH?pid=ImgDet&rs=1 alt="Capa do Velozes & Furiosos 7">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+        <div class="ranking">
+            <h3>Frozen II</h3>
+            <img src=https://th.bing.com/th/id/OIP.OOXbKGarZesgvLCLv9wplwHaLH?pid=ImgDet&rs=1 alt="Capa do Frozen II">
+            <button type="button" class="btn" onclick="redirecionarParaOutraPagina()">Ver Mais</button>
+        </div>
+
+        
+
+        <footer>
+    <div class="footer">
+        @Grupo Du'arte
+    </div>
+</footer>
+
+
+
+
+    </div>
+    <script>
+    function redirecionarParaOutraPagina() {
+        // Substitua 'URL_DA_OUTRA_PAGINA' pela URL da página para a qual você deseja redirecionar
+        window.location.href = 'ver.php';
+    }
+</script>
+
+
+</body>
+</html>
